@@ -76,7 +76,7 @@ client.on('message', async (msg) => {
         console.log("Hey")
         let connection = await msg.member.voice.channel.join()
         let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
-        let dispatcher = await connection.playStream(stream)
+        let dispatcher = await connection.play(stream)
         dispatcher.on('end', _end => { MessageChannel.member.voice.channel.leave() });
     }
 });
