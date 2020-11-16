@@ -34,13 +34,15 @@ client.on('message', async(msg) => {
                                       .setColor('#42b34d')
                                       .setFooter('Mute ' + msg.mentions.users.first().tag + ' for 15m?')
                                       .setImage(msg.mentions.users.first().avatarURL);
+
             const role = msg.guild.roles.find(r => r.name === 'Muted');
-            if (!role) return msg.channel.send('No Role was found, please make sure you have a muted role.')
+            if (!role) return msg.channel.send('No Role was found, please make sure you have a muted role.');
+
             const agree = "✅"
             const disagree ="❌"
-            console.log("here")
-            const sentEmbed = await msg.channel.send(voting);
-            console.log("this finished?")
+
+            console.log(voting);
+            const sentEmbed = await msg.channel.send(voting); //ERROR
             const filter = (reaction, user) => (reaction.emoji.name === agree || reaction.emoji.name === disagree) && !user.bot;
             await sentEmbed.react(agree);
             await sentEmbed.react(disagree);
