@@ -27,6 +27,7 @@ client.on('message', async(msg) => {
 
     if(msg.author.equals(client.user)) return;
     if(!msg.content.startsWith(PREFIX) || !msg.content.startsWith('<:JamesPog:')) return;
+    console.log("I'm here")
     switch(args[0].toLowerCase()) {
         case "mute":
             if(!msg.mentions.users.first()) return msg.channel.send("you need to mention somebody!!");
