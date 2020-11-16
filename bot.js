@@ -77,9 +77,7 @@ client.on('message', async (msg) => {
     }
     else if (msg.content.startsWith('<:JamesPog:')) {
         let connection = await msg.member.voice.channel.join()
-        let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
-        console.log(stream);
-        let dispatcher = await connection.play(stream)
+        let dispatcher = await connection.play(ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)]))
         dispatcher.on('end', _end => { msg.member.voice.channel.leave() });
     }
 });
