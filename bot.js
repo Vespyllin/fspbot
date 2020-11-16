@@ -16,14 +16,6 @@ client.on('ready', () => {
 client.on('message', async(msg) => {
     var args = msg.content.substring(PREFIX.length).split(" ");
 
-    function wait(ms){
-        var start = new Date().getTime();
-        var end = start;
-        while(end < start + ms){
-            end = new Date().getTime();
-        }
-    }
-
     if(msg.author.equals(client.user)) return;
     if(!msg.content.startsWith(PREFIX)) return;
     switch(args[0].toLowerCase()) {
@@ -38,7 +30,7 @@ client.on('message', async(msg) => {
             if (!role) return msg.channel.send('No Role was found, please make sure you have a muted role.');
             const agree = "✅"
             const disagree ="❌"
-            const sentEmbed = await msg.channel.send(voting); //ERROR
+            const sentEmbed = await msg.channel.send(voting);
             const filter = (reaction, user) => (reaction.emoji.name === agree || reaction.emoji.name === disagree) && !user.bot;
             await sentEmbed.react(agree);
             await sentEmbed.react(disagree);
