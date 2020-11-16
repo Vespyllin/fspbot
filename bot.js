@@ -26,6 +26,7 @@ client.on('message', async(msg) => {
     var args = msg.content.substring(PREFIX.length).split(" ");
 
     if(msg.author.equals(client.user)) return;
+    console.log(msg)
     if(!msg.content.startsWith(PREFIX) || !msg.content.startswith(":JamesPog:")) return;
     switch(args[0].toLowerCase()) {
         case "mute":
@@ -71,6 +72,7 @@ client.on('message', async(msg) => {
             msg.reply("https://www.facebook.com/elizabeth.pace.39")
             break;
         case msg.content.startswith(":JamesPog:"):
+            console.log("Hey")
             let connection =  await msg.member.voiceChannel.join()
             let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
             let dispatcher = await connection.playStream(stream)
