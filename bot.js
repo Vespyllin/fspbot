@@ -7,7 +7,7 @@ const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
 
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace", "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
-const JBSVIDEOS = ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
+const JBSVIDEOS = ["https://youtu.be/uCTqD250PJc"]
 client.on('ready', () => {
 
     console.log('I am ready!');
@@ -76,7 +76,6 @@ client.on('message', async (msg) => {
         }
     }
     else if (msg.content.startsWith('<:JamesPog:')) {
-        console.log("Hey")
         let connection = await msg.member.voice.channel.join()
         let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
         let dispatcher = await connection.play(stream)
