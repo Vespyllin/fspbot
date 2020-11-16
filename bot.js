@@ -40,8 +40,6 @@ client.on('message', async(msg) => {
 
             const agree = "✅"
             const disagree ="❌"
-
-            console.log(voting);
             const sentEmbed = await msg.channel.send(voting); //ERROR
             const filter = (reaction, user) => (reaction.emoji.name === agree || reaction.emoji.name === disagree) && !user.bot;
             await sentEmbed.react(agree);
