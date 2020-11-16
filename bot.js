@@ -46,7 +46,7 @@ client.on('message', async(msg) => {
             await sentEmbed.react(disagree);
 
             const voteStatus = await msg.channel.send('Voting started 30 seconds left');
-            const collected = sentEmbed.awaitReactions(filter, {time : 5000});
+            const collected = await sentEmbed.awaitReactions(filter, {time : 30000});
             const agreed = collected.get(agree) || {count: 1};
             const disagreed = collected.get(disagree) || {count : 1};
             const agreed_count = agreed.count - 1;
