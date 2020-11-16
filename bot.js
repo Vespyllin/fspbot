@@ -35,7 +35,7 @@ client.on('message', async(msg) => {
                                       .setFooter('Mute ' + msg.mentions.users.first().tag + ' for 15m?')
                                       .setImage(msg.mentions.users.first().avatarURL);
 
-            const role = msg.guild.roles.find(r => r.name === 'Muted');
+            const role = msg.guild.roles.cache.find(r => r.name === 'Muted');
             if (!role) return msg.channel.send('No Role was found, please make sure you have a muted role.');
 
             const agree = "✅"
