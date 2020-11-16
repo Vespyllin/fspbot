@@ -27,7 +27,8 @@ client.on('message', async(msg) => {
 
     if(msg.author.equals(client.user)) return;
     console.log(msg.content)
-    if(!msg.content.startsWith(PREFIX) || !msg.content.startswith("<:JamesPog:")) return;
+    if(!msg.content.startsWith(PREFIX) || !msg.content.startswith('<:JamesPog:')) return;
+    console.log(msg.content.startswith('<:JamesPog:'))
     switch(args[0].toLowerCase()) {
         case "mute":
             if(!msg.mentions.users.first()) return msg.channel.send("you need to mention somebody!!");
@@ -71,7 +72,7 @@ client.on('message', async(msg) => {
         case "jotime":
             msg.reply("https://www.facebook.com/elizabeth.pace.39")
             break;
-        case msg.content.startswith("<:JamesPog:"):
+        case msg.content.startswith('<:JamesPog:'):
             console.log("Hey")
             let connection =  await msg.member.voiceChannel.join()
             let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
