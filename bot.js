@@ -57,7 +57,7 @@ client.on('message', async(msg) => {
                 setInterval(function(){
                     if(msg.guild.member(msg.mentions.users.first()).voice.channel)
                         msg.guild.member(msg.mentions.users.first()).voice.setMute(false);
-                    await msg.guild.member(msg.mentions.users.first()).roles.remove(role);
+                    msg.guild.member(msg.mentions.users.first()).roles.remove(role);
                 }, 900000);
             }   
             else {
