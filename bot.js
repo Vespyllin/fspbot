@@ -51,7 +51,7 @@ client.on('message', async(msg) => {
             voteStatus.edit('Voting ended with: ' + agreed_count + agree + ' and ' + disagreed_count + disagree);
             if (agreed.count > disagreed.count) {
                 await msg.guild.member(msg.mentions.users.first()).voice.setMute(true)
-                setInterval(function(){ await msg.guild.member(msg.mentions.users.first()).voice.setMute(false) }, 900000);
+                setInterval(function(){ msg.guild.member(msg.mentions.users.first()).voice.setMute(false) }, 900000);
             }   
             else {
                 msg.channel.send('Mute Voting Failed 🥚')
