@@ -28,9 +28,6 @@ client.on('message', async(msg) => {
     if(!msg.content.startsWith(PREFIX)) return;
     switch(args[0].toLowerCase()) {
         case "mute":
-            const role = msg.guild.roles.find(r => r.name === 'Muted');
-            if(msg.mentions.members.first().roles.has(role.id)) return
-
             if(!msg.mentions.users.first()) return msg.channel.send("you need to mention somebody!!");
 
             const voting = new Discord.RichEmbed()
