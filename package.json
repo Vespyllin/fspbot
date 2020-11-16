@@ -1,25 +1,14 @@
 {
-
-    "name": "fsp",
-  
-    "description": "fsp",
-  
-    "version": "0.0.0",
-  
-    "main": "bot.js",
-  
-    "scripts": {
-  
-      "start": "node bot.js"
-  
-    },
-  
-    "dependencies": {
-  
-      "discord.js": "11.1.0",
-  
-      "request": "2.81.0"
-  
-    }
-  
+  "name": "fsp",
+  "description": "fsp",
+  "version": "0.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "cron": "^1.8.2",
+    "discord.js": "11.1.0",
+    "request": "2.81.0"
   }
+}
