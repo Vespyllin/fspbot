@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const cron = require('cron');
 
 const client = new Discord.Client();
-const PREFIX = "/"
+const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
 
 client.on('ready', () => {
