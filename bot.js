@@ -61,22 +61,10 @@ client.on('message', async(message) => {
             else {
                 msg.channel.send('Mute Voting Failed 🥚')
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            break;
+        case "jotime":
+            message.reply("https://www.facebook.com/elizabeth.pace.39")
+            break;
     }
 });
  
