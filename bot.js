@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const cron = require('cron');
 
 const client = new Discord.Client();
-const prefix = "🥚"
+const prefix = "/"
 const SHAUNPACE = "450287369766305822"
 
 client.on('ready', () => {
@@ -13,7 +13,7 @@ client.on('ready', () => {
 
  
 
-client.on('message', async(message) => {
+client.on('message', async(msg) => {
     var args = msg.content.substring(PREFIX.length).split(" ");
 
     function wait(ms){
@@ -63,7 +63,7 @@ client.on('message', async(message) => {
             }
             break;
         case "jotime":
-            message.reply("https://www.facebook.com/elizabeth.pace.39")
+            msg.reply("https://www.facebook.com/elizabeth.pace.39")
             break;
     }
 });
