@@ -34,7 +34,8 @@ client.on('message', async(msg) => {
                                       .setColor('#42b34d')
                                       .setFooter('Mute ' + msg.mentions.users.first().tag + ' for 15m?')
                                       .setImage(msg.mentions.users.first().avatarURL);
-
+            const role = msg.guild.roles.cache.find(r => r.name === 'Muted');
+            if (!role) return msg.channel.send('No Role was found, please make sure you have a muted role.');
             const agree = "✅"
             const disagree ="❌"
             const sentEmbed = await msg.channel.send(voting); //ERROR
@@ -50,8 +51,12 @@ client.on('message', async(msg) => {
             const disagreed_count = disagreed.count;
             voteStatus.edit('Voting ended with: ' + agreed_count + agree + ' and ' + disagreed_count + disagree);
             if (agreed.count > disagreed.count) {
+                await msg.guild.member(msg.mentions.users.first()).roles.add(role);
                 await msg.guild.member(msg.mentions.users.first()).voice.setMute(true)
-                setInterval(function(){ msg.guild.member(msg.mentions.users.first()).voice.setMute(false) }, 900000);
+                setInterval(function(){
+                    msg.guild.member(msg.mentions.users.first()).voice.setMute(false);
+                    await msg.guild.member(msg.mentions.users.first()).roles.remove(role);
+                }, 900000);
             }   
             else {
                 msg.channel.send('Mute Voting Failed 🥚')
