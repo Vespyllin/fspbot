@@ -5,13 +5,30 @@ const ytdl = require("ytdl-core");
 const client = new Discord.Client();
 const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
+let prev_no = 10;
+
+
 
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace",
-                             "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
+    "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
 const JBSVIDEOS = ["https://www.youtube.com/watch?v=uCTqD250PJc", "https://www.youtube.com/watch?v=QibX1u5cZS4",
-                   "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw",
-                   "https://www.youtube.com/watch?v=WaDtfMct0Bs", "https://www.youtube.com/watch?v=Xnu65Zbn7hk",
-                   "https://www.youtube.com/watch?v=7S-sWp4dgrU", "https://www.youtube.com/watch?v=T8giIEdc8E0"]
+    "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw",
+    "https://www.youtube.com/watch?v=WaDtfMct0Bs", "https://www.youtube.com/watch?v=Xnu65Zbn7hk",
+    "https://www.youtube.com/watch?v=7S-sWp4dgrU", "https://www.youtube.com/watch?v=T8giIEdc8E0",
+    "https://www.youtube.com/watch?v=G2462O1z3A0"]
+
+function getNumber() {
+    var min = 0;
+    var max = JBSVIDEOS.length;
+    var i;
+    i = Math.floor(Math.random() * (max - min)) + min;
+    while (i == prev_no) {
+        i = Math.floor(Math.random() * (max - min)) + min;
+        prev_no = i;
+    }
+
+    return i;
+};
 client.on('ready', () => {
 
     console.log('I am ready!');
@@ -75,10 +92,10 @@ client.on('message', async (msg) => {
                 msg.reply("https://www.facebook.com/elizabeth.pace.39")
                 break;
             case "leave":
-                if (msg.member.voice.channel){
-                msg.member.voice.channel.leave()
+                if (msg.member.voice.channel) {
+                    msg.member.voice.channel.leave()
                 }
-                else{
+                else {
                     msg.reply("You are not in a voice channel!")
                 }
                 break;
@@ -88,7 +105,7 @@ client.on('message', async (msg) => {
         if (msg.member.voice.channel) {
             cur_channel = msg.member.voice.channel;
             let connection = await cur_channel.join()
-            let dispatcher = await connection.play(ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)], { filter: 'audioonly' }))
+            let dispatcher = await connection.play(ytdl(JBSVIDEOS[getNumber()], { filter: 'audioonly' }))
             dispatcher.on('finish', _end => { cur_channel.leave() });
         }
         else {
