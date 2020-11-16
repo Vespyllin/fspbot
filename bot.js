@@ -56,7 +56,7 @@ client.on('message', async (msg) => {
                     if (msg.guild.member(msg.mentions.users.first()).voice.channel)
                         await msg.guild.member(msg.mentions.users.first()).voice.setMute(true);
                     setInterval(function () {
-                        console.log("unmuting" + msg.mentions.users.first());
+                        console.log("unmuting: " + msg.mentions.users.first());
                         if (msg.guild.member(msg.mentions.users.first()).voice.channel) {
                             msg.guild.member(msg.mentions.users.first()).voice.setMute(false);
                         }
