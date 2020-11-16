@@ -71,7 +71,12 @@ client.on('message', async (msg) => {
                 msg.reply("https://www.facebook.com/elizabeth.pace.39")
                 break;
             case "leave":
+                if (msg.member.voice.channel){
                 msg.member.voice.channel.leave()
+                }
+                else{
+                    msg.reply("You are not in a voice channel!")
+                }
                 break;
         }
     }
