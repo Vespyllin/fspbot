@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const cron = require('cron');
+const ytdl = require("ytdl-core");
 
 const client = new Discord.Client();
 const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
 
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace", "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
-
+const JBSVIDEOS = ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
 client.on('ready', () => {
 
     console.log('I am ready!');
@@ -25,7 +26,7 @@ client.on('message', async(msg) => {
     var args = msg.content.substring(PREFIX.length).split(" ");
 
     if(msg.author.equals(client.user)) return;
-    if(!msg.content.startsWith(PREFIX)) return;
+    if(!msg.content.startsWith(PREFIX) || !msg.content.startswith(":JamesPog:")) return;
     switch(args[0].toLowerCase()) {
         case "mute":
             if(!msg.mentions.users.first()) return msg.channel.send("you need to mention somebody!!");
@@ -68,6 +69,12 @@ client.on('message', async(msg) => {
             break;
         case "jotime":
             msg.reply("https://www.facebook.com/elizabeth.pace.39")
+            break;
+        case msg.content.startswith(":JamesPog:"):
+            let connection =  await msg.member.voiceChannel.join()
+            let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
+            let dispatcher = await connection.playStream(stream)
+            dispatcher.on('end', _end => {MessageChannel.member.voiceChannel.leave()});
             break;
     }
 });
