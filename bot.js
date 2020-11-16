@@ -54,7 +54,7 @@ client.on('message', async(msg) => {
             voteStatus.edit('Voting ended with: ' + agreed_count + agree + ' and ' + disagreed_count + disagree);
             if (agreed.count > disagreed.count) {
                 await msg.guild.member(msg.mentions.users.first()).voice.setMute(true)
-                await wait(10000);
+                await wait(900000);
                 await msg.guild.member(msg.mentions.users.first()).voice.setMute(false)
             }   
             else {
