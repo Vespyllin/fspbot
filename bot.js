@@ -5,17 +5,17 @@ const ytdl = require("ytdl-core");
 const client = new Discord.Client();
 const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
-let prev_no = 10;
+let prev_no = -10;
 
 
 
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace",
-    "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
+                             "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
 const JBSVIDEOS = ["https://www.youtube.com/watch?v=uCTqD250PJc", "https://www.youtube.com/watch?v=QibX1u5cZS4",
-    "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw",
-    "https://www.youtube.com/watch?v=WaDtfMct0Bs", "https://www.youtube.com/watch?v=Xnu65Zbn7hk",
-    "https://www.youtube.com/watch?v=7S-sWp4dgrU", "https://www.youtube.com/watch?v=T8giIEdc8E0",
-    "https://www.youtube.com/watch?v=G2462O1z3A0"]
+                   "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw",
+                   "https://www.youtube.com/watch?v=WaDtfMct0Bs", "https://www.youtube.com/watch?v=Xnu65Zbn7hk",
+                   "https://www.youtube.com/watch?v=7S-sWp4dgrU", "https://www.youtube.com/watch?v=T8giIEdc8E0",
+                   "https://www.youtube.com/watch?v=G2462O1z3A0"]
 
 function getNumber() {
     var min = 0;
