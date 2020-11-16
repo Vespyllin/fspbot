@@ -26,7 +26,7 @@ client.on('message', async(msg) => {
     var args = msg.content.substring(PREFIX.length).split(" ");
 
     if(msg.author.equals(client.user)) return;
-    console.log(msg)
+    console.log(msg.content)
     if(!msg.content.startsWith(PREFIX) || !msg.content.startswith("<:JamesPog:")) return;
     switch(args[0].toLowerCase()) {
         case "mute":
