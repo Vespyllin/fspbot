@@ -26,8 +26,6 @@ client.on('message', async(msg) => {
     var args = msg.content.substring(PREFIX.length).split(" ");
 
     if(msg.author.equals(client.user)) return;
-    console.log(msg.content)
-    console.log(msg.content.startsWith('<:JamesPog:'))
     if(!msg.content.startsWith(PREFIX) || !msg.content.startsWith('<:JamesPog:')) return;
     switch(args[0].toLowerCase()) {
         case "mute":
@@ -72,13 +70,13 @@ client.on('message', async(msg) => {
         case "jotime":
             msg.reply("https://www.facebook.com/elizabeth.pace.39")
             break;
-        case msg.content.startsWith('<:JamesPog:'):
-            console.log("Hey")
-            let connection =  await msg.member.voiceChannel.join()
-            let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
-            let dispatcher = await connection.playStream(stream)
-            dispatcher.on('end', _end => {MessageChannel.member.voiceChannel.leave()});
-            break;
+    }
+    if (msg.content.startsWith('<:JamesPog:')){
+        console.log("Hey")
+        let connection =  await msg.member.voiceChannel.join()
+        let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
+        let dispatcher = await connection.playStream(stream)
+        dispatcher.on('end', _end => {MessageChannel.member.voiceChannel.leave()});
     }
 });
  
