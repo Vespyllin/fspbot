@@ -30,7 +30,7 @@ client.on('message', async(msg) => {
         case "mute":
             if(!msg.mentions.users.first()) return msg.channel.send("you need to mention somebody!!");
 
-            const voting = new Discord.RichEmbed()
+            const voting = new Discord.MessageEmbed()
                                       .setColor('#42b34d')
                                       .setFooter('Mute ' + msg.mentions.users.first().tag + ' for 15m?')
                                       .setImage(msg.mentions.users.first().avatarURL);
