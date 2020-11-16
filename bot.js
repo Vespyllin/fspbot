@@ -49,8 +49,8 @@ client.on('message', async(msg) => {
             const collected = await sentEmbed.awaitReactions(filter, {time : 30000});
             const agreed = collected.get(agree) || {count: 1};
             const disagreed = collected.get(disagree) || {count : 1};
-            const agreed_count = agreed.count - 1;
-            const disagreed_count = disagreed.count - 1;
+            const agreed_count = agreed.count;
+            const disagreed_count = disagreed.count;
             voteStatus.edit('Voting ended with: ' + agreed_count + agree + ' and ' + disagreed_count + disagree);
             if (agreed.count > disagreed.count) {
                 await msg.guild.member(msg.mentions.users.first()).voice.setMute(true)
