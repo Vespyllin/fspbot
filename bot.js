@@ -70,6 +70,9 @@ client.on('message', async (msg) => {
             case "jotime":
                 msg.reply("https://www.facebook.com/elizabeth.pace.39")
                 break;
+            case "leave":
+                msg.member.voice.channel.leave()
+                break;
         }
     }
     else if (msg.content.startsWith('<:JamesPog:')) {
@@ -77,7 +80,7 @@ client.on('message', async (msg) => {
         let connection = await msg.member.voice.channel.join()
         let stream = ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)])
         let dispatcher = await connection.play(stream)
-        dispatcher.on('end', _end => { MessageChannel.member.voice.channel.leave() });
+        dispatcher.on('end', _end => { msg.member.voice.channel.leave() });
     }
 });
 
