@@ -82,9 +82,10 @@ client.on('message', async (msg) => {
     }
     else if (msg.content.startsWith('<:JamesPog:')) {
         if (msg.member.voice.channel) {
-            let connection = await msg.member.voice.channel.join()
+            cur_channel = msg.member.voice.channel;
+            let connection = await cur_channel.join()
             let dispatcher = await connection.play(ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)], { filter: 'audioonly' }))
-            dispatcher.on('finish', _end => { msg.member.voice.channel.leave() });
+            dispatcher.on('finish', _end => { cur_channel.leave() });
         }
         else {
             msg.reply("You have to be in a voice channel!")
