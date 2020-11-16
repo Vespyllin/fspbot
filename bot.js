@@ -7,7 +7,7 @@ const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
 
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace", "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
-const JBSVIDEOS = ["https://www.youtube.com/watch?v=uCTqD250PJc","https://www.youtube.com/watch?v=QibX1u5cZS4", "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw"]
+const JBSVIDEOS = ["https://www.youtube.com/watch?v=uCTqD250PJc", "https://www.youtube.com/watch?v=QibX1u5cZS4", "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw"]
 client.on('ready', () => {
 
     console.log('I am ready!');
@@ -76,9 +76,14 @@ client.on('message', async (msg) => {
         }
     }
     else if (msg.content.startsWith('<:JamesPog:')) {
-        let connection = await msg.member.voice.channel.join()
-        let dispatcher = await connection.play(ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)], { filter: 'audioonly' }))
-        dispatcher.on('finish', _end => { msg.member.voice.channel.leave() });
+        if (msg.member.voice.channel) {
+            let connection = await msg.member.voice.channel.join()
+            let dispatcher = await connection.play(ytdl(JBSVIDEOS[Math.floor(Math.random() * JBSVIDEOS.length)], { filter: 'audioonly' }))
+            dispatcher.on('finish', _end => { msg.member.voice.channel.leave() });
+        }
+        else {
+            msg.reply("You have to be in a voice channel!")
+        }
     }
 });
 
