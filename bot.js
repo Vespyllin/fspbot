@@ -52,9 +52,11 @@ client.on('message', async(msg) => {
             voteStatus.edit('Voting ended with: ' + agreed_count + agree + ' and ' + disagreed_count + disagree);
             if (agreed.count > disagreed.count) {
                 await msg.guild.member(msg.mentions.users.first()).roles.add(role);
-                await msg.guild.member(msg.mentions.users.first()).voice.setMute(true)
+                if(msg.guild.member(msg.mentions.users.first()).voice.channel)
+                    await msg.guild.member(msg.mentions.users.first()).voice.setMute(true);
                 setInterval(function(){
-                    msg.guild.member(msg.mentions.users.first()).voice.setMute(false);
+                    if(msg.guild.member(msg.mentions.users.first()).voice.channel)
+                        msg.guild.member(msg.mentions.users.first()).voice.setMute(false);
                     await msg.guild.member(msg.mentions.users.first()).roles.remove(role);
                 }, 900000);
             }   
