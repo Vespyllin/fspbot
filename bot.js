@@ -7,7 +7,7 @@ const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
 
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace", "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
-const JBSVIDEOS = ["https://youtu.be/uCTqD250PJc"]
+const JBSVIDEOS = ["https://www.youtube.com/watch?v=uCTqD250PJc"]
 client.on('ready', () => {
 
     console.log('I am ready!');
