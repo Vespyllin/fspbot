@@ -38,8 +38,9 @@ client.on('message', async(msg) => {
             if (!role) return msg.channel.send('No Role was found, please make sure you have a muted role.')
             const agree = "✅"
             const disagree ="❌"
-
+            console.log("here")
             const sentEmbed = await msg.channel.send(voting);
+            console.log("this finished?")
             const filter = (reaction, user) => (reaction.emoji.name === agree || reaction.emoji.name === disagree) && !user.bot;
             await sentEmbed.react(agree);
             await sentEmbed.react(disagree);
