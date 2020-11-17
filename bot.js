@@ -7,8 +7,6 @@ const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
 let prev_no = -10;
 
-
-
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace",
                              "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel",
                              "Prosit Mintoff", "Jien James Balzan Sultana Laburist u proud", "Kemm ma nahmlux il shaun Pace",
@@ -41,7 +39,7 @@ client.on('ready', () => {
 
 });
 
-let scheduledMessage = new cron.CronJob('0,30 06-02 * * *', () => {
+let scheduledMessage = new cron.CronJob('0,30 06-24 * * *', () => {
     let channel = client.channels.cache.get('404664933452873732');
     channel.send(SHAUNPACESWEARWORDS[Math.floor(Math.random() * SHAUNPACESWEARWORDS.length)]);
 });
