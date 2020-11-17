@@ -10,7 +10,13 @@ let prev_no = -10;
 
 
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace",
-                             "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel"]
+                             "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel",
+                             "Prosit Mintoff", "Jien James Balzan Sultana Laburist u proud", "Kemm ma nahmlux il shaun Pace",
+                             "Ghalaqlu Jan Sammut", "JeremyJoe qahbu", "Jake mhix schizo", "Got Slurp? 🍧",
+                             "All my homies hate shaun pace", "My name Jeff", "MCAST mhix skola tal injoranti 🙈",
+                             "Junior college dumb dumbs", "Marcus Mercieca sex of the universe", "Miirko Sant",
+                             "Matthew Mifsud.", "me don't likey Shaun Pace 😡", "🤠", "#feelingGrateful😊",
+                             "Raiden Psaila l king ta jc", "F'Raiden nafdaw", "Il Wapow"]
 const JBSVIDEOS = ["https://www.youtube.com/watch?v=uCTqD250PJc", "https://www.youtube.com/watch?v=QibX1u5cZS4",
                    "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw",
                    "https://www.youtube.com/watch?v=WaDtfMct0Bs", "https://www.youtube.com/watch?v=Xnu65Zbn7hk",
@@ -35,7 +41,7 @@ client.on('ready', () => {
 
 });
 
-let scheduledMessage = new cron.CronJob('0,30 * * * *', () => {
+let scheduledMessage = new cron.CronJob('0,30 06-02 * * *', () => {
     let channel = client.channels.cache.get('404664933452873732');
     channel.send(SHAUNPACESWEARWORDS[Math.floor(Math.random() * SHAUNPACESWEARWORDS.length)]);
 });
