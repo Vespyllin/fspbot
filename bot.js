@@ -4,7 +4,7 @@ const ytdl = require("ytdl-core");
 
 const client = new Discord.Client();
 const PREFIX = "🥚"
-const SHAUNPACE = "450287369766305822"
+const SHAUNPACE = "778586305730314270"
 let prev_no = -10;
 
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace",
