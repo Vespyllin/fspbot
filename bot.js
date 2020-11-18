@@ -122,7 +122,7 @@ client.on('message', async (msg) => {
         }
     }
     if (msg.author.id === SHAUNPACE || msg.author.id === "645205466066059264"){
-        shaun_reactions = [":regional_indicator_f:",'🇫', '🇬', '🇭', '⭕', '✖️', '🇽', '🇴', '🇲', 'Ⓜ️', '🅾️', '🇰'];
+        shaun_reactions = ["regional_indicator_f",'🇫', '🇬', '🇭', '⭕', '✖️', '🇽', '🇴', '🇲', 'Ⓜ️', '🅾️', '🇰'];
         for (x in shaun_reactions){
             msg.react(x);
         }
