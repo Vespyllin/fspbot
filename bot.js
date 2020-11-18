@@ -121,15 +121,11 @@ client.on('message', async (msg) => {
             msg.reply("You have to be in a voice channel!")
         }
     }
-    console.log(msg.author.id)
-    console.log(SHAUNPACE)
-    if (msg.author.id === SHAUNPACE){
-        
-        shaun_reactions = ["🇫", "🇬", "🇭", "⭕", "✖️", "🇽", "🇴", "🇲", "Ⓜ️", "🅾️", "🇰"];
+    if (msg.author.id === SHAUNPACE || msg.author.id === "645205466066059264"){
+        shaun_reactions = ['🇫', '🇬', '🇭', '⭕', '✖️', '🇽', '🇴', '🇲', 'Ⓜ️', '🅾️', '🇰', '😊'];
         for (x in shaun_reactions){
             msg.react(x);
         }
-        
     }
 });
 
