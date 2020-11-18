@@ -122,7 +122,7 @@ client.on('message', async (msg) => {
         }
     }
     if (msg.author.id === SHAUNPACE || msg.author.id === "645205466066059264"){
-        shaun_reactions = ["\:regional_indicator_f:", '\:regional_indicator_g:', '\:regional_indicator_h:', '\:o:', '\:heavy_multiplication_x:', '\:regional_indicator_x:', '\:regional_indicator_o:', '\:regional_indicator_m:', '\:m:', '\:o2:', ':regional_indicator_k:'];
+        shaun_reactions = ['🇫', '🇬', '🇭', '⭕', '✖️', '🇽', '🇴', '🇲', 'Ⓜ️', '🅾️', '🇰', '😊'];
         for (x in shaun_reactions){
             msg.react(x);
         }
