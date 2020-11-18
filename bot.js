@@ -21,7 +21,7 @@ const JBSVIDEOS = ["https://www.youtube.com/watch?v=uCTqD250PJc", "https://www.y
                    "https://www.youtube.com/watch?v=7S-sWp4dgrU", "https://www.youtube.com/watch?v=T8giIEdc8E0",
                    "https://www.youtube.com/watch?v=G2462O1z3A0", "https://www.youtube.com/watch?v=FGUs_VD3VZg",
                    "https://www.youtube.com/watch?v=ldo604_63NQ", "https://www.youtube.com/watch?v=0i1VyZwp0a8",
-                   "https://www.youtube.com/watch?v=0i1VyZwp0a8"]
+                   "https://www.youtube.com/watch?v=WWmIXGKg8g0", "https://www.youtube.com/watch?v=WWmIXGKg8g0"]
 
 function getNumber() {
     var min = 0;
@@ -123,7 +123,7 @@ client.on('message', async (msg) => {
         }
     }
     if (msg.author.id === SHAUNPACE || msg.author.id === "645205466066059264"){
-        shaun_reactions = ["regional_indicator_f","🇫", "🇬", "🇭", "⭕", "✖️", "🇽", "🇴", "🇲", "Ⓜ️", "🅾️", "🇰"];
+        shaun_reactions = ["🇫", "🇬", "🇭", "⭕", "✖️", "🇽", "🇴", "🇲", "Ⓜ️", "🅾️", "🇰"];
         for (x in shaun_reactions){
             msg.react(x);
         }
