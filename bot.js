@@ -125,7 +125,7 @@ client.on('message', async (msg) => {
     console.log(SHAUNPACE)
     if (msg.author.id === SHAUNPACE){
         
-        shaun_reactions = ["🇫", "🇬", "🇭", "⭕", "✖️", "🇽", "🇴", "🇲", "Ⓜ️", "🅾️", "k"];
+        shaun_reactions = ["🇫", "🇬", "🇭", "⭕", "✖️", "🇽", "🇴", "🇲", "Ⓜ️", "🅾️", "🇰"];
         for (x in shaun_reactions){
             msg.react(x);
         }
