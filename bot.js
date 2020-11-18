@@ -121,9 +121,9 @@ client.on('message', async (msg) => {
             msg.reply("You have to be in a voice channel!")
         }
     }
-    console.log(msg.sender)
+    console.log(msg.author)
     console.log(SHAUNPACE)
-    if (msg.sender === SHAUNPACE){
+    if (msg.author === SHAUNPACE){
         shaun_reactions = ["🇫", "🇬", "🇭", "⭕", "✖️", "🇽", "🇴", "🇲", "Ⓜ️", "🅾️", "k"];
         for (x in shaun_reactions){
             msg.react(shaun_reactions);
