@@ -8,21 +8,21 @@ const SHAUNPACE = "450287369766305822"
 let prev_no = -10;
 let muteMap = new Map()
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace",
-                             "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel",
-                             "Prosit Mintoff", "Jien James Balzan Sultana Laburist u proud", "Kemm ma nahmlux il shaun Pace",
-                             "Ghalaqlu Jan Sammut", "JeremyJoe qahbu", "Jake mhix schizo", "Got Slurp? 🍧",
-                             "All my homies hate shaun pace", "My name Jeff", "MCAST mhix skola tal injoranti 🙈",
-                             "Junior college dumb dumbs", "Marcus Mercieca sex of the universe", "Miirko Sant",
-                             "Matthew Mifsud.", "me don't likey Shaun Pace 😡", "🤠", "#feelingGrateful😊",
-                             "Raiden Psaila l king ta jc", "F'Raiden nafdaw", "Il Wapow"]
+    "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel",
+    "Prosit Mintoff", "Jien James Balzan Sultana Laburist u proud", "Kemm ma nahmlux il shaun Pace",
+    "Ghalaqlu Jan Sammut", "JeremyJoe qahbu", "Jake mhix schizo", "Got Slurp? 🍧",
+    "All my homies hate shaun pace", "My name Jeff", "MCAST mhix skola tal injoranti 🙈",
+    "Junior college dumb dumbs", "Marcus Mercieca sex of the universe", "Miirko Sant",
+    "Matthew Mifsud.", "me don't likey Shaun Pace 😡", "🤠", "#feelingGrateful😊",
+    "Raiden Psaila l king ta jc", "F'Raiden nafdaw", "Il Wapow"]
 const JBSVIDEOS = ["https://www.youtube.com/watch?v=uCTqD250PJc", "https://www.youtube.com/watch?v=QibX1u5cZS4",
-                   "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw",
-                   "https://www.youtube.com/watch?v=WaDtfMct0Bs", "https://www.youtube.com/watch?v=Xnu65Zbn7hk",
-                   "https://www.youtube.com/watch?v=7S-sWp4dgrU", "https://www.youtube.com/watch?v=T8giIEdc8E0",
-                   "https://www.youtube.com/watch?v=G2462O1z3A0", "https://www.youtube.com/watch?v=FGUs_VD3VZg",
-                   "https://www.youtube.com/watch?v=ldo604_63NQ", "https://www.youtube.com/watch?v=0i1VyZwp0a8",
-                   "https://www.youtube.com/watch?v=WWmIXGKg8g0", "https://www.youtube.com/watch?v=sQhjhiaqnl8",
-                   "https://www.youtube.com/watch?v=KKeWJRSAaVk", "https://www.youtube.com/watch?v=KKeWJRSAaVk"]
+    "https://www.youtube.com/watch?v=Je6GcMjpCC8", "https://www.youtube.com/watch?v=Hxx1uP1ECuw",
+    "https://www.youtube.com/watch?v=WaDtfMct0Bs", "https://www.youtube.com/watch?v=Xnu65Zbn7hk",
+    "https://www.youtube.com/watch?v=7S-sWp4dgrU", "https://www.youtube.com/watch?v=T8giIEdc8E0",
+    "https://www.youtube.com/watch?v=G2462O1z3A0", "https://www.youtube.com/watch?v=FGUs_VD3VZg",
+    "https://www.youtube.com/watch?v=ldo604_63NQ", "https://www.youtube.com/watch?v=0i1VyZwp0a8",
+    "https://www.youtube.com/watch?v=WWmIXGKg8g0", "https://www.youtube.com/watch?v=sQhjhiaqnl8",
+    "https://www.youtube.com/watch?v=KKeWJRSAaVk", "https://www.youtube.com/watch?v=KKeWJRSAaVk"]
 
 function getNumber() {
     var min = 0;
@@ -61,6 +61,7 @@ client.on('message', async (msg) => {
     if (msg.content.startsWith(PREFIX)) {
         switch (args[0].toLowerCase()) {
             case "mute":
+                let usermute = 300000
                 if (!msg.mentions.users.first()) return msg.channel.send("you need to mention somebody!!");
 
                 const voting = new Discord.MessageEmbed()
@@ -85,26 +86,24 @@ client.on('message', async (msg) => {
                 voteStatus.edit('Voting ended with: ' + agreed_count + agree + ' and ' + disagreed_count + disagree);
                 if (agreed.count > disagreed.count) {
                     await msg.guild.member(msg.mentions.users.first()).roles.add(role);
-                    if(muteMap.has(msg.mentions.users.first().id) && ((new Date().getTime() - muteMap.get(msg.mentions.users.first().id)) < 14400000)){
-                        console.log(msg.mentions.users.first().id);
-                        console.log(muteMap.get(msg.mentions.users.first().id));
+                    if (muteMap.has(msg.mentions.users.first().id) && ((new Date().getTime() - muteMap.get(msg.mentions.users.first().id)) < 14400000)) {
                         msg.channel.send('User has been muted in the past 4 hour skipping....')
                         return;
                     }
                     else {
-                        console.log(msg.mentions.users.first().id);
-                        console.log(muteMap.get(msg.mentions.users.first().id));
-                        muteMap.set(msg.mentions.users.first().id,new Date().getTime());
+                        muteMap.set(msg.mentions.users.first().id, new Date().getTime());
                     }
                     if (msg.guild.member(msg.mentions.users.first()).voice.channel)
                         await msg.guild.member(msg.mentions.users.first()).voice.setMute(true);
+                    if (msg.mentions.users.first().id == SHAUNPACE)
+                        usermute = 900000
                     setTimeout(function () {
                         console.log("unmuting: " + msg.mentions.users.first());
                         if (msg.guild.member(msg.mentions.users.first()).voice.channel) {
                             msg.guild.member(msg.mentions.users.first()).voice.setMute(false);
                         }
                         msg.guild.member(msg.mentions.users.first()).roles.remove(role);
-                    }, 900000);
+                    }, usermute);
                 }
                 else {
                     msg.channel.send('Mute Voting Failed 🥚')
