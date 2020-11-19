@@ -86,10 +86,14 @@ client.on('message', async (msg) => {
                 if (agreed.count > disagreed.count) {
                     await msg.guild.member(msg.mentions.users.first()).roles.add(role);
                     if(muteMap.has(msg.mentions.users.first().id) && ((new Date().getTime() - muteMap.get(msg.mentions.users.first().id)) < 14400)){
+                        console.log(msg.mentions.users.first().id);
+                        console.log(muteMap.get(msg.mentions.users.first().id));
                         msg.channel.send('User has been muted in the past 4 hour skipping....')
                         return;
                     }
                     else {
+                        console.log(msg.mentions.users.first().id);
+                        console.log(muteMap.get(msg.mentions.users.first().id));
                         muteMap.set(msg.mentions.users.first().id,new Date().getTime());
                     }
                     if (msg.guild.member(msg.mentions.users.first()).voice.channel)
