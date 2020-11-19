@@ -6,7 +6,7 @@ const client = new Discord.Client();
 const PREFIX = "🥚"
 const SHAUNPACE = "450287369766305822"
 let prev_no = -10;
-
+let muteMap = new Map()
 const SHAUNPACESWEARWORDS = ["F'ghoxx kemm ghandek Shaun Pace", "Kemm se nahralek fl'ikel Shaun Pace",
                              "nirak tikser saqajk minghajr il good luck Shaun Pace", "Zobb F'ghoxx l-israel",
                              "Prosit Mintoff", "Jien James Balzan Sultana Laburist u proud", "Kemm ma nahmlux il shaun Pace",
@@ -65,7 +65,7 @@ client.on('message', async (msg) => {
 
                 const voting = new Discord.MessageEmbed()
                     .setColor('#42b34d')
-                    .setFooter('Mute ' + msg.mentions.users.first().tag + ' for 15m?')
+                    .setFooter('Mute ' + msg.mentions.users.first().tag + ' for 5m?')
                     .setImage(msg.mentions.users.first().avatarURL);
                 const role = msg.guild.roles.cache.find(r => r.name === 'Muted');
                 if (!role) return msg.channel.send('No Role was found, please make sure you have a muted role.');
@@ -85,6 +85,11 @@ client.on('message', async (msg) => {
                 voteStatus.edit('Voting ended with: ' + agreed_count + agree + ' and ' + disagreed_count + disagree);
                 if (agreed.count > disagreed.count) {
                     await msg.guild.member(msg.mentions.users.first()).roles.add(role);
+                    if(muteMap.has(msg.mentions.users.first().id) && ((new Date().getTime() - muteMap[msg.mentions.users.first().id]) < 14400))
+                        return;
+                    else {
+                        muteMap[msg.mentions.users.first().id] = new Date().getTime();
+                    }
                     if (msg.guild.member(msg.mentions.users.first()).voice.channel)
                         await msg.guild.member(msg.mentions.users.first()).voice.setMute(true);
                     setInterval(function () {
