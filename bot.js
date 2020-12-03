@@ -42,15 +42,10 @@ client.on('ready', () => {
 
 });
 
-let scheduledMessage = new cron.CronJob('0,30 06-23 * * *', () => {
+let scheduledMessage = new cron.CronJob('0 06-23 * * *', () => {
     let channel = client.channels.cache.get('404664933452873732');
     channel.send(SHAUNPACESWEARWORDS[Math.floor(Math.random() * SHAUNPACESWEARWORDS.length)]);
 });
-let scheduledMessage2 = new cron.CronJob('0,30 00-2 * * *', () => {
-    let channel = client.channels.cache.get('404664933452873732');
-    channel.send(SHAUNPACESWEARWORDS[Math.floor(Math.random() * SHAUNPACESWEARWORDS.length)]);
-});
-
 scheduledMessage.start()
 
 
