@@ -42,7 +42,7 @@ client.on('ready', () => {
 
 });
 
-let scheduledMessage = new cron.CronJob('0 06-23 * * *', () => {
+let scheduledMessage = new cron.CronJob('0 */6 * * *', () => {
     let channel = client.channels.cache.get('404664933452873732');
     channel.send(SHAUNPACESWEARWORDS[Math.floor(Math.random() * SHAUNPACESWEARWORDS.length)]);
 });
