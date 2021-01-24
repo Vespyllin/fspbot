@@ -40,7 +40,7 @@ client.on('ready', () => {
 
     console.log('I am ready!');
     let channel = client.channels.cache.get('404664933452873732');
-    channel.send("I JBS SAY VOTE FOR MICHAEL ALLAH 2021, AS A REMINDER FUCK SHAUN PACE!");
+    channel.send("1 + 1 = 2, 2 + 2 = 4, Fuck + Shaun = Pace, VOTE MICHAEL ALLAH 2021!");
 });
 
 let scheduledMessage = new cron.CronJob('0 */6 * * *', () => {
