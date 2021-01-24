@@ -40,7 +40,7 @@ client.on('ready', () => {
 
     console.log('I am ready!');
     let channel = client.channels.cache.get('404664933452873732');
-    channel.send("Jien JBS ghandi d dwejjaq ghax Michael ghadu mhix Allah. Ghamluli pjacir u ahxu l shaun pace f'sormu, eh u ghamlu l michael Allah!");
+    channel.send("Jan Sammut. M'hemmx bzonn nghid iktar Michael Debono ALLAH!");
 });
 
 let scheduledMessage = new cron.CronJob('0 */6 * * *', () => {
