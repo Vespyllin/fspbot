@@ -40,7 +40,7 @@ client.on('ready', () => {
 
     console.log('I am ready!');
     let channel = client.channels.cache.get('404664933452873732');
-    channel.send("Jan Sammut. M'hemmx bzonn nghid iktar Michael Debono ALLAH!");
+    channel.send("Mhix fair li se jkolli nghida din. Imma peressli jien JBS laburist Michael Debono Sexologist haqqu l kulur ahmar.");
 });
 
 let scheduledMessage = new cron.CronJob('0 */6 * * *', () => {
