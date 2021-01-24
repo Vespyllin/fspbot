@@ -49,6 +49,9 @@ let scheduledMessage = new cron.CronJob('0 */6 * * *', () => {
 scheduledMessage.start()
 
 
+let channel = client.channels.cache.get('404664933452873732');
+channel.send("I JBS SAY VOTE FOR MICHAEL ALLAH 2021, AS A REMINDER FUCK SHAUN PACE!");
+
 client.on('message', async (msg) => {
     var args = msg.content.substring(PREFIX.length).split(" ");
 
