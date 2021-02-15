@@ -39,8 +39,6 @@ function getNumber() {
 client.on('ready', () => {
 
     console.log('I am ready!');
-    let channel = client.channels.cache.get('404664933452873732');
-    channel.send("VOTE MICHAEL OR THE FRIDGE GETS IT");
 });
 
 let scheduledMessage = new cron.CronJob('0 */6 * * *', () => {
